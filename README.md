@@ -1,3 +1,4 @@
+https://travis-ci.org/y-kamiya/haskell-prefork.svg?branch=develop
 [![Coverage Status](https://img.shields.io/coveralls/y-kamiya/haskell-prefork.svg)](https://coveralls.io/r/y-kamiya/haskell-prefork)
 
 Haskell Prefork
