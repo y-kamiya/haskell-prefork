@@ -42,6 +42,4 @@ script:
 
 after_script:
   - cd ../
-  - pwd
-  - ls dist/hpc/tix/
-  - hpc-coveralls --exclude-dir=test test-prefork
+  - hpc-coveralls --exclude-dir=test test-prefork prefork-0.0.7
