@@ -56,4 +56,4 @@ after_script:
   - cat dist/hpc/mix/prefork-0.0.7/prefork-0.0.7/System.Prefork.Class.mix
   - cat dist/hpc/mix/prefork-0.0.7/prefork-0.0.7/System.Prefork.Settings.mix
   - cat dist/hpc/mix/prefork-0.0.7/prefork-0.0.7/System.Prefork.Main.mix
-  - hpc-coveralls --exclude-dir=test test-prefork 
+  - hpc-coveralls --exclude-dir=test test-prefork test-prefork-server
