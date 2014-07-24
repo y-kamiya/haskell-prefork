@@ -43,7 +43,11 @@ script:
 after_script:
   - cd ../
   - pwd
+  - ls dist/hpc/mix
   - ls dist/hpc/mix/test-prefork
+  - ls dist/hpc/mix/test-prefork-server
+  - ls dist/hpc/mix/prefork-0.0.7
+  - ls dist/hpc/mix/prefork-0.0.7/prefork-0.0.7
   - cat dist/hpc/mix/test-prefork/Main.mix
   - cat dist/hpc/mix/test-prefork/Constant.mix
   - cat dist/hpc/mix/test-prefork/Util.mix
