@@ -42,5 +42,7 @@ script:
 
 after_script:
   - cd ../
+  - pwd
   - ls dist/hpc/mix/test-prefork
+  - cat dist/hpc/mix/test-prefork/Main.mix
   - hpc-coveralls --exclude-dir=test test-prefork 
