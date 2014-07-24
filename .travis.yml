@@ -1,10 +1,10 @@
 env:
- - GHCVER=7.6.1
- - GHCVER=7.6.2
- - GHCVER=7.6.3
- - GHCVER=7.8.1
+# - GHCVER=7.6.1
+# - GHCVER=7.6.2
+# - GHCVER=7.6.3
+# - GHCVER=7.8.1
  - GHCVER=7.8.2
- - GHCVER=head
+# - GHCVER=head
 
 matrix:
   allow_failures:
@@ -51,4 +51,9 @@ after_script:
   - cat dist/hpc/mix/test-prefork/Main.mix
   - cat dist/hpc/mix/test-prefork/Constant.mix
   - cat dist/hpc/mix/test-prefork/Util.mix
+  - cat dist/hpc/mix/test-prefork-server/Main.mix
+  - cat dist/hpc/mix/test-prefork-server/Constant.mix
+  - cat dist/hpc/mix/prefork-0.0.7/prefork-0.0.7/System.Prefork.Class.mix
+  - cat dist/hpc/mix/prefork-0.0.7/prefork-0.0.7/System.Prefork.Settings.mix
+  - cat dist/hpc/mix/prefork-0.0.7/prefork-0.0.7/System.Prefork.Main.mix
   - hpc-coveralls --exclude-dir=test test-prefork 
