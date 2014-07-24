@@ -42,4 +42,5 @@ script:
 
 after_script:
   - cd ../
-  - hpc-coveralls --exclude-dir=test test-prefork prefork-0.0.7
+  - ls dist/hpc/mix/test-prefork
+  - hpc-coveralls --exclude-dir=test test-prefork 
