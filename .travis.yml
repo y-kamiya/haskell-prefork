@@ -28,6 +28,20 @@ script:
  - cabal clean
  - cabal configure --enable-tests -v2 --enable-library-coverage  # -v2 provides useful information for debugging
  - cabal build   # this builds all libraries and executables (including tests/benchmarks)
+ - run-cabal-test
+ - cabal check
+ - cabal sdist   # tests that a source-distribution can be generated
+
+ - export SRC_TGZ=$(cabal-1.18 info . | awk '{print $2 ".tar.gz";exit}') ;
+   cd dist/;
+   if [ -f "$SRC_TGZ" ]; then
+      cabal install "$SRC_TGZ";
+   else
+      echo "expected '$SRC_TGZ' not found";
+      exit 1;
+   fi
+
+ - cd ..
  - pwd
  - ls dist/hpc/mix
  - ls dist/hpc/mix/test-prefork
@@ -43,28 +57,6 @@ script:
  - cat dist/hpc/mix/prefork-0.0.7/prefork-0.0.7/System.Prefork.Settings.mix
  - cat dist/hpc/mix/prefork-0.0.7/prefork-0.0.7/System.Prefork.Main.mix
  - cat dist/hpc/mix/prefork-0.0.7/prefork-0.0.7/System.Prefork.mix
- - run-cabal-test
- - cabal check
- - cabal sdist   # tests that a source-distribution can be generated
-
- - export SRC_TGZ=$(cabal-1.18 info . | awk '{print $2 ".tar.gz";exit}') ;
-   cd dist/;
-   if [ -f "$SRC_TGZ" ]; then
-      cabal install "$SRC_TGZ";
-   else
-      echo "expected '$SRC_TGZ' not found";
-      exit 1;
-   fi
-
-after_script:
- - cd ../
- - cat dist/hpc/mix/test-prefork/Main.mix
- - cat dist/hpc/mix/test-prefork/Constant.mix
- - cat dist/hpc/mix/test-prefork/Util.mix
- - cat dist/hpc/mix/test-prefork-server/Main.mix
- - cat dist/hpc/mix/test-prefork-server/Constant.mix
- - cat dist/hpc/mix/prefork-0.0.7/prefork-0.0.7/System.Prefork.Class.mix
- - cat dist/hpc/mix/prefork-0.0.7/prefork-0.0.7/System.Prefork.Settings.mix
- - cat dist/hpc/mix/prefork-0.0.7/prefork-0.0.7/System.Prefork.Main.mix
- - cat dist/hpc/mix/prefork-0.0.7/prefork-0.0.7/System.Prefork.mix
  - hpc-coveralls --exclude-dir=test test-prefork test-prefork-server
+
+
