@@ -28,6 +28,21 @@ script:
  - cabal clean
  - cabal configure --enable-tests -v2 --enable-library-coverage  # -v2 provides useful information for debugging
  - cabal build   # this builds all libraries and executables (including tests/benchmarks)
+ - pwd
+ - ls dist/hpc/mix
+ - ls dist/hpc/mix/test-prefork
+ - ls dist/hpc/mix/test-prefork-server
+ - ls dist/hpc/mix/prefork-0.0.7
+ - ls dist/hpc/mix/prefork-0.0.7/prefork-0.0.7
+ - cat dist/hpc/mix/test-prefork/Main.mix
+ - cat dist/hpc/mix/test-prefork/Constant.mix
+ - cat dist/hpc/mix/test-prefork/Util.mix
+ - cat dist/hpc/mix/test-prefork-server/Main.mix
+ - cat dist/hpc/mix/test-prefork-server/Constant.mix
+ - cat dist/hpc/mix/prefork-0.0.7/prefork-0.0.7/System.Prefork.Class.mix
+ - cat dist/hpc/mix/prefork-0.0.7/prefork-0.0.7/System.Prefork.Settings.mix
+ - cat dist/hpc/mix/prefork-0.0.7/prefork-0.0.7/System.Prefork.Main.mix
+ - cat dist/hpc/mix/prefork-0.0.7/prefork-0.0.7/System.Prefork.mix
  - run-cabal-test
  - cabal check
  - cabal sdist   # tests that a source-distribution can be generated
@@ -42,20 +57,14 @@ script:
    fi
 
 after_script:
-  - cd ../
-  - pwd
-  - ls dist/hpc/mix
-  - ls dist/hpc/mix/test-prefork
-  - ls dist/hpc/mix/test-prefork-server
-  - ls dist/hpc/mix/prefork-0.0.7
-  - ls dist/hpc/mix/prefork-0.0.7/prefork-0.0.7
-  - cat dist/hpc/mix/test-prefork/Main.mix
-  - cat dist/hpc/mix/test-prefork/Constant.mix
-  - cat dist/hpc/mix/test-prefork/Util.mix
-  - cat dist/hpc/mix/test-prefork-server/Main.mix
-  - cat dist/hpc/mix/test-prefork-server/Constant.mix
-  - cat dist/hpc/mix/prefork-0.0.7/prefork-0.0.7/System.Prefork.Class.mix
-  - cat dist/hpc/mix/prefork-0.0.7/prefork-0.0.7/System.Prefork.Settings.mix
-  - cat dist/hpc/mix/prefork-0.0.7/prefork-0.0.7/System.Prefork.Main.mix
-  - cat dist/hpc/mix/prefork-0.0.7/prefork-0.0.7/System.Prefork.mix
-  - hpc-coveralls --exclude-dir=test test-prefork test-prefork-server
+ - cd ../
+ - cat dist/hpc/mix/test-prefork/Main.mix
+ - cat dist/hpc/mix/test-prefork/Constant.mix
+ - cat dist/hpc/mix/test-prefork/Util.mix
+ - cat dist/hpc/mix/test-prefork-server/Main.mix
+ - cat dist/hpc/mix/test-prefork-server/Constant.mix
+ - cat dist/hpc/mix/prefork-0.0.7/prefork-0.0.7/System.Prefork.Class.mix
+ - cat dist/hpc/mix/prefork-0.0.7/prefork-0.0.7/System.Prefork.Settings.mix
+ - cat dist/hpc/mix/prefork-0.0.7/prefork-0.0.7/System.Prefork.Main.mix
+ - cat dist/hpc/mix/prefork-0.0.7/prefork-0.0.7/System.Prefork.mix
+ - hpc-coveralls --exclude-dir=test test-prefork test-prefork-server
