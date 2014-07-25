@@ -25,6 +25,7 @@ install:
  - cabal install --only-dependencies --enable-tests --constraint 'process-conduit < 1.2.0' --constraint 'attoparsec-conduit < 1.1.0'
 
 script:
+ - cabal clean
  - cabal configure --enable-tests -v2 --enable-library-coverage  # -v2 provides useful information for debugging
  - cabal build   # this builds all libraries and executables (including tests/benchmarks)
  - run-cabal-test
