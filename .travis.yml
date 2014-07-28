@@ -46,9 +46,8 @@ script:
 
  - cd ..
  - pwd
- - cat dist/hpc/mix/test-prefork/Main.mix
+ - cat dist/hpc/tix/test-prefork/test-prefork.tix
  - hpc-coveralls --exclude-dir=test test-prefork test-prefork-server
- - cat /tmp/aaa
  #- cat dist/hpc/mix/test-prefork/Main.mix
 
 
