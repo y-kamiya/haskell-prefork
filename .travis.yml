@@ -21,7 +21,7 @@ install:
  - git clone http://github.com/y-kamiya/hpc-coveralls.git
  - cd hpc-coveralls
  - cabal sandbox init
- - cabal install hpc-coveralls --bindir=$HOME/.cabal/bin/
+ - cabal install --bindir=$HOME/.cabal/bin/
  - cabal sandbox delete
  - cd ..
  - cabal install happy
