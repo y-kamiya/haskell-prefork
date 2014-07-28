@@ -18,9 +18,12 @@ before_install:
 
 install:
  - cabal update
+ - git clone git@github.com:y-kamiya/hpc-coveralls.git
+ - cd hpc-coveralls
  - cabal sandbox init
  - cabal install hpc-coveralls --bindir=$HOME/.cabal/bin/
  - cabal sandbox delete
+ - cd ..
  - cabal install happy
  - cabal install --only-dependencies --enable-tests --constraint 'process-conduit < 1.2.0' --constraint 'attoparsec-conduit < 1.1.0'
 
