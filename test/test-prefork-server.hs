@@ -1,3 +1,5 @@
+module Main where
+
 import System.Prefork
 import System.Posix
 import System.Exit (exitSuccess)
