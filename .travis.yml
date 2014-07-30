@@ -46,8 +46,15 @@ script:
 
  - cd ..
  - pwd
+ - ls dist/hpc/tix/test-prefork
+ - ls dist/hpc/tix/test-prefork-server
+ - ls dist/hpc/tix/prefork-0.0.7
  - cat dist/hpc/tix/test-prefork/test-prefork.tix
+ - cat dist/hpc/tix/test-prefork-server/test-prefork-server.tix
  - cat dist/hpc/tix/prefork-0.0.7/prefork-0.0.7.tix
- - hpc-coveralls --exclude-dir=test test-prefork-server test-prefork 
+ - cat dist/hpc/mix/test-prefork/Main.mix | head -c 100
+ - cat dist/hpc/mix/test-prefork/Util.mix | head -c 100
+ - cat dist/hpc/mix/test-prefork-server/Main.mix | head -c 100
+ - hpc-coveralls --exclude-dir=test test-prefork test-prefork-server 
 
 
