@@ -74,6 +74,7 @@ main = do
         workerSet <- atomically $ readTVar $ prWorkers resource
         workerSet `shouldBe` S.fromList [w1]
 
+{-
     describe "Main" $ do
       it "makes test server" $ do
         (_, ph) <- createTestServer settingDefault
@@ -112,6 +113,7 @@ main = do
           terminateProcess ph
           workerPids <- lines <$> hGetContents hdl
           length workerPids `shouldBe` 1
+-}
 
 createTestServer :: String -> IO (ProcessID, ProcessHandle)
 createTestServer settings = do
