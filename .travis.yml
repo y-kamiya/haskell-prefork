@@ -48,6 +48,6 @@ script:
  - pwd
  - cat dist/hpc/tix/test-prefork/test-prefork.tix
  - cat dist/hpc/tix/prefork-0.0.7/prefork-0.0.7.tix
- - hpc-coveralls --exclude-dir=test test-prefork test-prefork-server
+ - hpc-coveralls --exclude-dir=test test-prefork-server test-prefork 
 
 
