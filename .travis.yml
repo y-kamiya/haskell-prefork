@@ -31,6 +31,9 @@ script:
  - cabal clean
  - cabal configure --enable-tests -v2 --enable-library-coverage  # -v2 provides useful information for debugging
  - cabal build   # this builds all libraries and executables (including tests/benchmarks)
+ - cat dist/hpc/mix/test-prefork/Main.mix | head -c 100
+ - cat dist/hpc/mix/test-prefork/Util.mix | head -c 100
+ - cat dist/hpc/mix/test-prefork-server/Main.mix | head -c 100
  - cabal test
  - pwd
  - ls dist/hpc/tix/test-prefork
