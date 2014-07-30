@@ -8,15 +8,31 @@ import System.Environment
 import Control.Monad
 import Control.Concurrent
 
-import Constant (
-    Worker(..)
-  , workerNum
-  , serverOption
-  , masterOutputFile
-  , workerOutputFile 
-  , settingDefault
-  , settingRelaunch
-  )
+data Worker = Worker String deriving (Eq, Ord, Show, Read)
+
+instance WorkerContext Worker
+
+workerNum :: Int
+workerNum = 2
+
+serverOption :: String
+serverOption = "keep-alive"
+
+masterOutputFile :: String
+masterOutputFile = "/tmp/master"
+
+workerOutputFile :: String
+workerOutputFile = "/tmp/worker"
+
+relaunchWorkerFile :: String
+relaunchWorkerFile = "/tmp/relaunch_workers"
+
+settingDefault :: String
+settingDefault = "defaultSettings"
+
+settingRelaunch :: String
+settingRelaunch = "relaunchSettings"
+
 
 data ServerConfig = ServerConfig
 
