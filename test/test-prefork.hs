@@ -74,7 +74,6 @@ main = do
         workerSet <- atomically $ readTVar $ prWorkers resource
         workerSet `shouldBe` S.fromList [w1]
 
-{-
 
     describe "Main" $ do
       it "makes test server" $ do
@@ -84,6 +83,7 @@ main = do
           flip shouldBe "onStart" =<< hGetContents hdl
         terminateProcess ph
 
+{-
       it "sends sigHUP" $ do
         checkOutputOnSignal sigHUP workerOutputFile "updateServer"
 
