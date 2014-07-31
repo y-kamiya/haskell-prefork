@@ -75,6 +75,7 @@ main = do
         workerSet `shouldBe` S.fromList [w1]
 
 {-
+
     describe "Main" $ do
       it "makes test server" $ do
         (_, ph) <- createTestServer settingDefault
