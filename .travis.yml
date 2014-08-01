@@ -33,10 +33,12 @@ script:
  - cabal build   # this builds all libraries and executables (including tests/benchmarks)
 # - cabal test
  - ./dist/build/test-prefork/test-prefork 
+
+after_script:
  - cat test-prefork.tix
  - cat test-prefork-server.tix
- - mkdir dist/hpc/tix/test-prefork
- - mkdir dist/hpc/tix/test-prefork-server
+ - mkdir -p dist/hpc/tix/test-prefork
+ - mkdir -p dist/hpc/tix/test-prefork-server
  - mv test-prefork.tix dist/hpc/tix/test-prefork/
  - mv test-prefork-server.tix dist/hpc/tix/test-prefork-server/
  - hpc-coveralls --exclude-dir=test test-prefork test-prefork-server 
