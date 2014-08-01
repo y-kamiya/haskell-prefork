@@ -31,22 +31,13 @@ script:
  - cabal clean
  - cabal configure --enable-tests -v2 --enable-library-coverage  # -v2 provides useful information for debugging
  - cabal build   # this builds all libraries and executables (including tests/benchmarks)
- - cat dist/hpc/mix/test-prefork/Main.mix | head -c 100
- - cat dist/hpc/mix/test-prefork/Util.mix | head -c 100
- - cat dist/hpc/mix/test-prefork-server/Main.mix | head -c 100
- - cabal test
- - pwd
- - ls dist/hpc/tix/test-prefork
- - ls dist/hpc/tix/test-prefork-server
- - ls dist/hpc/tix/prefork-0.0.7
- - cat dist/hpc/tix/test-prefork/test-prefork.tix
- - cat dist/hpc/tix/test-prefork-server/test-prefork-server.tix
- - cat dist/hpc/tix/prefork-0.0.7/prefork-0.0.7.tix
- - ls dist/hpc/mix/test-prefork/
- - cat dist/hpc/mix/test-prefork/Main.mix
- - cat dist/hpc/mix/test-prefork/Main.mix | head -c 100
- - cat dist/hpc/mix/test-prefork/Util.mix | head -c 100
- - cat dist/hpc/mix/test-prefork-server/Main.mix | head -c 100
+# - cabal test
+ - ./dist/build/test-prefork/test-prefork 
+ - cat test-prefork.tix
+ - cat test-prefork-server.tix
+ - mkdir dist/hpc/tix
+ - mv test-prefork.tix dist/hpc/tix/
+ - mv test-prefork-server.tix dist/hpc/tix/
  - hpc-coveralls --exclude-dir=test test-prefork test-prefork-server 
 
 
