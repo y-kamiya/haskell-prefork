@@ -35,9 +35,10 @@ script:
  - ./dist/build/test-prefork/test-prefork 
  - cat test-prefork.tix
  - cat test-prefork-server.tix
- - mkdir dist/hpc/tix
- - mv test-prefork.tix dist/hpc/tix/
- - mv test-prefork-server.tix dist/hpc/tix/
+ - mkdir dist/hpc/tix/test-prefork
+ - mkdir dist/hpc/tix/test-prefork-server
+ - mv test-prefork.tix dist/hpc/tix/test-prefork/
+ - mv test-prefork-server.tix dist/hpc/tix/test-prefork-server/
  - hpc-coveralls --exclude-dir=test test-prefork test-prefork-server 
 
 
